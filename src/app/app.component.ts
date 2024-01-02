@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { Ex1Service } from './modules/services/ex1.service';
 import { Person } from './modules/shared/interface/person';
 import { Color } from './modules/enum/color';
-// import { Rectangle } from './modules/shared/interface/rectangle';
-import { Rectangle } from './modules/services/rectangle.service';
+import { RectangleService } from './modules/services/rectangle.service';
 
 @Component({
   selector: 'app-root',
@@ -16,11 +15,15 @@ export class AppComponent {
   generic: number | undefined;
   color: string | undefined;
   acreage: number | undefined;
+  factorial: number | undefined;
+  prime: boolean | undefined;
 
-  constructor(private ex1service: Ex1Service) {
+  constructor(private ex1service: Ex1Service, private rectangle: RectangleService) {
     this.ketQua = this.ex1service.summary(this.array);
     this.generic = this.ex1service.showArray<number>(this.array);
-    // this.acreage = this.rectangle.showAcreage(10, 20);
+    this.acreage = this.rectangle.showAcreage(10, 20);
+    this.factorial = this.ex1service.factorial(5);
+    this.prime = this.ex1service.isPrime(13);
   }
 
   inMau(mau: Color): void {

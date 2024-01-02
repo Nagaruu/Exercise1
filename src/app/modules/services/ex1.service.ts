@@ -21,4 +21,24 @@ export class Ex1Service {
   showEnum(mau: Color): string {
     return mau;
   }
+
+  factorial(n: number): number {
+    if (n === 0 || n === 1) {
+      return 1;
+    } else {
+      return n * this.factorial(n - 1);
+    }
+  }
+
+  isPrime(num: number): boolean {
+    if (num <= 1) {
+      return false;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
 }
