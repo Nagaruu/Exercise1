@@ -1,6 +1,7 @@
 // src/app/tong-so.service.ts
 import { Injectable } from '@angular/core';
 import { Color } from '../enum/color';
+import { LogMethod } from '../shared/decorators/log.decorator';
 
 @Injectable({
   providedIn: 'root',
@@ -40,5 +41,10 @@ export class Ex1Service {
       }
     }
     return true;
+  }
+
+  @LogMethod
+  greet(name: string): string {
+    return name;
   }
 }
